@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SpotifyCard() {
+export default function SpotifyCard({name,title,link}) {
   const classes = useStyles();
   const theme = useTheme();
 
@@ -46,10 +46,10 @@ export default function SpotifyCard() {
       <div className={classes.details}>
         <CardContent className={classes.content}>
           <Typography component="h5" variant="h5">
-            Live From Space
+            {title}
           </Typography>
-          <Typography variant="subtitle1" color="textSecondary">
-            Mac Miller
+          <Typography variant="subtitle1" color="white">
+            {name}
           </Typography>
         </CardContent>
         <div className={classes.controls}>
@@ -63,8 +63,7 @@ export default function SpotifyCard() {
       </div>
       <CardMedia
         className={classes.cover}
-        image="https://images.unsplash.com/photo-1502773860571-211a597d6e4b?ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=60"
-        title="Live from space album cover"
+        image={link}
       />
     </Card>
   );

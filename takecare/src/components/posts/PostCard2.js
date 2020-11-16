@@ -24,7 +24,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-export default function PostCard2() {
+export default function PostCard2({date,title,url}) {
   const classes = useStyles();
 
 
@@ -37,12 +37,12 @@ export default function PostCard2() {
             <MoreVertIcon />
           </IconButton>
         }
-        title="Shrimp and Chorizo Paella"
-        subheader="September 14, 2016"
+        title={title}
+        subheader={date}
       />
       <CardMedia
         className={classes.media}
-        image="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=60"
+        image={url}
       />
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">

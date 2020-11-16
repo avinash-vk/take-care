@@ -7,8 +7,11 @@ import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import PostCard2 from '../../components/posts/PostCard2';
+import BlogCard from '../../components/blogs/BlogCard';
 import SpotifyCard from '../../components/spotify/SpotifyCard';
-
+import WorkoutCard from '../../components/workouts/WorkoutCard';
+import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid';
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -47,6 +50,16 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor:'white',
     color:'purple',
   },
+
+  rootgrid: {
+    flexGrow: 1,
+  },
+  paper: {
+    padding: theme.spacing(2),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+  },
+
 }));
 
 export default function SimpleTabs() {
@@ -56,7 +69,40 @@ export default function SimpleTabs() {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-
+const data =[
+  {
+    date:"September 14th,2020",
+    title:"Shrimp and Chorizo Paella",
+    url:"https://images.unsplash.com/photo-1482049016688-2d3e1b311543?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=60"
+  },
+  {
+    date:"September 16th,2020",
+    title:"Vegan Doughnut",
+    url:"https://images.unsplash.com/photo-1511557878388-bfbc44c72e84?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=60"
+  },
+  {
+    date:"September 15th,2020",
+    title:"Berry'd Alive Delight",
+    url:"https://images.unsplash.com/photo-1496412705862-e0088f16f791?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=60"
+  },
+]
+  const data2=[
+    {
+      link:"https://images.unsplash.com/photo-1502773860571-211a597d6e4b?ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=60",
+      title:"Live From Space",
+      name:"Mac Miller"
+    },
+    {
+      link:"https://images.unsplash.com/photo-1511735111819-9a3f7709049c?ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=60",
+      title:"Live From Space",
+      name:"Mac Miller"
+    },
+    {
+      link:"https://images.unsplash.com/photo-1453738773917-9c3eff1db985?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=60",
+      title:"Live From Space",
+      name:"Mac Miller"
+    },
+  ]
   return (
     <div className={classes.root}>
       <AppBar position="static" color="transparent">
@@ -76,16 +122,31 @@ export default function SimpleTabs() {
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
-        Item One
+        <WorkoutCard/>
       </TabPanel>
       <TabPanel value={value} index={1}>
-        Item Two
+        <div>
+        <BlogCard/>
+        </div>
       </TabPanel>
       <TabPanel value={value} index={2}>
-        <PostCard2/>
+      <div className={classes.rootgrid}>
+      <Grid container spacing={3}>
+      {data.map((value) => ( 
+          <Grid item xs><PostCard2 date={value.date} url={value.url} title={value.title}/></Grid>
+      ))}
+        </Grid>
+        </div>
       </TabPanel>
       <TabPanel value={value} index={3}>
-        <SpotifyCard/>
+<div className={classes.rootgrid}>
+      <Grid container spacing={3}>
+      {data2.map((value) => ( 
+          <Grid item xs><SpotifyCard name={value.name}  title={value.title} link={value.link}/></Grid>
+      ))}
+        </Grid>
+    </div>
+
       </TabPanel>
     </div>
   );

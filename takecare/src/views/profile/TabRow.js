@@ -100,6 +100,40 @@ const data =[
       name:"Mac Miller"
     },
   ]
+  const data3=[
+    {
+      blog:"This impressive paella is a perfect party dish and a fun meal to cook together with your guests. This impressive paella is a perfect party dish and a fun meal to cook together with your guests.",
+      title:"One",
+      date:"June 14th,2020"
+    },
+    {
+      blog:"This impressive paella is a perfect party dish and a fun meal to cook together with your guests.",
+      title:"TWo",
+      date:"September 14th,2020"
+    },
+    {
+      blog:"This impressive paella is a perfect party dish and a fun meal to cook This impressive paella is a perfect party dish and a fun meal to cook together with your gu",
+      title:"Three",
+      date:"October 14th,2020" 
+    },
+  ]
+  const data4=[
+    {
+      link:"https://www.youtube.com/watch?v=ysz5S6PUM-U",
+      title:"One",
+      date:"June 14th,2020"
+    },
+    {
+      link:"https://www.youtube.com/watch?v=ysz5S6PUM-U",
+      title:"Two",
+      date:"September 14th,2020"
+    },
+    {
+      link:"https://www.youtube.com/watch?v=ysz5S6PUM-U",
+      title:"Three",
+      date:"October 14th,2020"
+    },
+  ]
   return (
     <div className={classes.root}>
       <AppBar position="static" color="transparent">
@@ -120,11 +154,21 @@ const data =[
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
-        <WorkoutCard/>
+      <div className={classes.rootgrid}>
+        <Grid container spacing={3}>
+          {data4.map((value) => ( 
+            <Grid item xs><WorkoutCard date={value.date} link={value.link} title={value.title}/></Grid>
+          ))}
+        </Grid>
+        </div>
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <div>
-        <BlogCard/>
+        <div className={classes.rootgrid}>
+        <Grid container spacing={3}>
+          {data3.map((value) => ( 
+            <Grid item xs><BlogCard date={value.date} blog={value.blog} title={value.title}/></Grid>
+          ))}
+        </Grid>
         </div>
       </TabPanel>
       <TabPanel value={value} index={2}>

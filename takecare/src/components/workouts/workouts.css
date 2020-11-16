@@ -1,0 +1,19 @@
+.workoutcard{
+    height: 50%;
+    width:25%;
+}
+.heading {
+    width: 336px;
+    height: 72px;
+    font: outline !important;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 36px;
+    color: #000000;
+}
+.caption{
+    text-overflow: ellipsis !important;
+}
+.floating{
+    margin-top: 10px !important;
+}

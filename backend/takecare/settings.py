@@ -19,6 +19,9 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'blog',
+    'workout',
+    'moment',
     'api',
     'rest_framework.authtoken',
     'rest_framework',

@@ -8,9 +8,6 @@ const WorkoutCard =()=>{
         <div className="workoutcard">
           <div className="card">
             <div className="card-image">
-              <video width="100%" height="100%" controls >
-                <source src="videos/trial.mp4" type="video/mp4"/>
-              </video>
               <ReactPlayer width="100%" height="100%" url='https://www.youtube.com/watch?v=ysz5S6PUM-U' />
               <span className="card-title">Card Title</span>
               <a className="btn-floating halfway-fab waves-effect waves-light purple floting">+</a>

@@ -15,7 +15,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={Landing} />
         <Route exact path="/profile" component={Profile} />
-        
+        <Route exact path="/feed" component={Feed}/>
       </Switch>
     );
   } else {

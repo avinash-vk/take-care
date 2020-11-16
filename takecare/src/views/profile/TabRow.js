@@ -10,8 +10,8 @@ import PostCard2 from '../../components/posts/PostCard2';
 import BlogCard from '../../components/blogs/BlogCard';
 import SpotifyCard from '../../components/spotify/SpotifyCard';
 import WorkoutCard from '../../components/workouts/WorkoutCard';
-import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
+import GoogleFit from '../../components/googlefit/googlefit';
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -54,11 +54,8 @@ const useStyles = makeStyles((theme) => ({
   rootgrid: {
     flexGrow: 1,
   },
-  paper: {
-    padding: theme.spacing(2),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-  },
+
+
 
 }));
 
@@ -119,6 +116,7 @@ const data =[
           <Tab label="BLOGS" {...a11yProps(1)} />
           <Tab label="MOMENTS" {...a11yProps(2)} />
           <Tab label="PLAYLISTS" {...a11yProps(3)} />
+          <Tab label="GOOGLE FIT" {...a11yProps(4)}/>
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
@@ -139,14 +137,16 @@ const data =[
         </div>
       </TabPanel>
       <TabPanel value={value} index={3}>
-<div className={classes.rootgrid}>
+        <div className={classes.rootgrid}>
       <Grid container spacing={3}>
       {data2.map((value) => ( 
           <Grid item xs><SpotifyCard name={value.name}  title={value.title} link={value.link}/></Grid>
       ))}
         </Grid>
     </div>
-
+      </TabPanel>
+      <TabPanel value={value} index={4}>
+        <GoogleFit/>
       </TabPanel>
     </div>
   );

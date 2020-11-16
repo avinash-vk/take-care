@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
     maxWidth:345,
-    backgroundColor:'black',
+    backgroundColor:'darkgrey',
   },
   details: {
     display: 'flex',
@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
   },
   content: {
     flex: '1 0 auto',
-    color:'#b19cd9'
+    color:'black'
   },
   cover: {
     width: 151,

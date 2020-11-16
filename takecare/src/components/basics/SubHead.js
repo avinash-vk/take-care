@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './Header.css';
+//import './Header.css';
 import {ReactComponent as Divider} from './assets/Divider.svg'
 const Subhead =({subhead})=>{
     return(

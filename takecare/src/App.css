@@ -15,3 +15,11 @@
 .activated{
   color:"#ce93d8" !important;
 }
+.Subhead{
+  margin:8px;
+  float: left;
+  font-weight: bold;
+}
+.dividerline{
+  float: left;
+}

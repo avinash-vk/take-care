@@ -4,6 +4,7 @@ import {ReactComponent as Divider} from '../../../components/basics/assets/Divid
 import Recommended from './Recommended.js'
 import PostCard from '../../../components/posts/PostCard2.js';
 import SpotifyCard from '../../../components/spotify/SpotifyCard.js';
+import WorkoutCard from '../../../components/workouts/WorkoutCard.js';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
@@ -50,15 +51,46 @@ const Header =()=>{
           title:"Live From Space",
           name:"Mac Miller"
         },
+        {
+            link:"https://images.unsplash.com/photo-1502773860571-211a597d6e4b?ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=60",
+            title:"Live From Space",
+            name:"Mac Miller"
+          },
+      ]
+      const data4=[
+        {
+          link:"https://www.youtube.com/watch?v=ysz5S6PUM-U",
+          title:"One",
+          date:"June 14th,2020"
+        },
+        {
+          link:"https://www.youtube.com/watch?v=ysz5S6PUM-U",
+          title:"Two",
+          date:"September 14th,2020"
+        },
+        {
+          link:"https://www.youtube.com/watch?v=ysz5S6PUM-U",
+          title:"Three",
+          date:"October 14th,2020"
+        },
       ]
     return(
         <div className="Header col s12">
             <h1 style={{paddingTop:'50px'}} className="">~ GROW TOGETHER ~</h1>
-            <div className="container" style={{backgroundColor:"black",height:"1500px",padding:"10px"}}>
+            <div className="container" style={{backgroundColor:"black",height:"2000px",padding:"10px"}}>
                 <h6>Recommended for you!</h6>
                 <Divider></Divider>
                 <Recommended tileData={tileData}/>
                 <h6>See what's popping around you!</h6>
+                <Divider></Divider>
+                <h6 style={{fontStyle:"italic"}}>Workouts</h6>
+                <div className={classes.rootgrid}>
+                <Grid container spacing={3}>
+                {data4.map((value) => ( 
+                    <Grid item xs><WorkoutCard date={value.date} link={value.link} title={value.title}/></Grid>
+                ))}
+                </Grid>
+                </div>
                 <Divider></Divider>
                 <h6 style={{fontStyle:"italic"}}>Music</h6>
                 <div className={classes.rootgrid}>

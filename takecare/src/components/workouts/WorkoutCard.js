@@ -32,12 +32,8 @@ const WorkoutCard =(props)=>{
           title={props.title}
           subheader={props.date}
         />
-        
-          <video width="100%" height="100%" controls >
-            <source src="videos/trial.mp4" type="video/mp4"/>
-          </video>
           <ReactPlayer width="100%" height="100%" url={props.link} />
-    
+
         <CardContent>
           <Typography variant="body2" color="textSecondary" component="p">
             This impressive paella is a perfect party dish and a fun meal to cook

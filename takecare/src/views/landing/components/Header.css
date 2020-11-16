@@ -6,11 +6,10 @@
     color: whitesmoke;
     font-weight: bold;
 }
-.Subhead{
-    margin: 8px;
-    float: left;
-    font-weight: bold;
-}
-.dividerline{
-    float: left;
+
+.illus{
+    float: right;
+    margin-right: 100px;
+    position: inherit;
+    padding-bottom: 120px;
 }

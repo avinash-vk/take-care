@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Header from './components/Header.js';
-import Subhead from './components/SubHead.js';
+import Subhead from '../../components/basics/SubHead.js';
 import PostCard from '../../components/posts/PostCard.js';
 class Landing extends Component{
     render () {

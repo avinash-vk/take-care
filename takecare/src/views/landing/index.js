@@ -9,11 +9,7 @@ class Landing extends Component{
             <>
             <Header/>
             <Subhead subhead={subhead1}/>
-            <br></br>
-            <br></br>
-            <div style={{marginTop:'10px'}}>
-            <PostCard/>
-            </div>
+
             
             </>
         )

@@ -1,0 +1,11 @@
+.postcard{
+    height: 50%;
+    width:25%;
+    
+}
+.postcaption{
+    text-overflow: ellipsis !important;
+}
+.floating{
+    margin-top: 10px !important;
+}

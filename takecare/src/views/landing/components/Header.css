@@ -1,0 +1,16 @@
+.Header{
+    height: 400px !important;
+    width: 100%;
+    background-color:rgba(159, 44, 214, 1) !important; 
+    border-bottom-right-radius: 80px;
+    color: whitesmoke;
+    font-weight: bold;
+}
+.Subhead{
+    margin: 8px;
+    float: left;
+    font-weight: bold;
+}
+.dividerline{
+    float: left;
+}

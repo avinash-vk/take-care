@@ -17,7 +17,7 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
-
+SITE_ID = 1
 INSTALLED_APPS = [
     'blog',
     'workout',

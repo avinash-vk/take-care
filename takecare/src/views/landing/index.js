@@ -4,6 +4,7 @@ import Subhead from '../../components/basics/SubHead.js';
 import PostCard from '../../components/posts/PostCard.js';
 import BlogCard from '../../components/blogs/BlogCard.js';
 import WorkoutCard from '../../components/workouts/WorkoutCard.js';
+import BlogExpansion from '../../components/blogs/BlogExpansion.js';
 
 class Landing extends Component{
     render () {
@@ -16,8 +17,9 @@ class Landing extends Component{
             <br></br>
             <br></br>
             <div style={{marginTop:'10px'}}>
-                <WorkoutCard/><BlogCard/>
+                <BlogExpansion/>
             </div>
+            
             </>
         )
     }

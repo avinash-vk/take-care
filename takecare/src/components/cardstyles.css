@@ -1,0 +1,10 @@
+.root{
+    max-width: 250
+  }
+.title{
+    font-size:10
+}
+.media {
+    height: 0;
+    padding-top: 56.25%;
+}

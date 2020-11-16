@@ -9,6 +9,7 @@ from django.urls import path,include
     path('moments/',include('')),'''
 
 urlpatterns = [
+    path('workouts/',include('workout.urls')),
     path('blogs/',include('blog.urls')),
     path('moments/',include('moment.urls')),
     path('auth/', include('rest_auth.urls')),

@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.contrib.contenttypes.fields import GenericRelation
 from utils.models import Like,Tag,Save,Comment
-from utils.views import addTag
+import utils.views as Utils
 
 class Moment(models.Model):
     title = models.CharField(max_length=200, unique=True)
@@ -22,4 +22,4 @@ class Moment(models.Model):
     
     def save(self,*args,**kwargs):
         super(Blog,self).save(*args,**kwargs)
-        addTag(self)
+        Utils.addTag(self)

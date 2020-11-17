@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django.template.defaultfilters import slugify
 from django.contrib.contenttypes.fields import GenericRelation
 from utils.models import Like,Tag,Save,Comment
-from utils.views import addTag
+import utils.views as Utils
 
 class Blog(models.Model):
 
@@ -25,4 +25,4 @@ class Blog(models.Model):
 
     def save(self,*args,**kwargs):
         super(Blog,self).save(*args,**kwargs)
-        addTag(self)
+        Utils.addTag(self)

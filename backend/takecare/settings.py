@@ -23,6 +23,7 @@ INSTALLED_APPS = [
     'workout',
     'moment',
     'api',
+    'utils',
     'rest_framework.authtoken',
     'rest_framework',
     'rest_auth',

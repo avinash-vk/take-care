@@ -1,9 +1,10 @@
 from rest_framework.decorators import api_view
 from rest_framework.parsers import JSONParser
-from blog.models import Blog
+import blog.models
 from moment.models import Moment
 from workout.models import Workout
-from .models import Like,Comment,Saves,Tag
+from .models import Like,Comment,Save,Tag
+
 
 #not an api
 def addTag(object):
@@ -107,7 +108,7 @@ def setComment(request):
     except Exception as e:
         return Response({"error": str(e) })
 
-@api_view(['POST','GET'])
+@api_view(['POST'])
 def setFollow(request):
     if request.method == "POST":
         data = JSONParser().parse(request)

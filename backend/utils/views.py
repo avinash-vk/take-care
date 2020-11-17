@@ -49,42 +49,42 @@ def setLike(request):
         return Response({"error": str(e) })
 
 
-@api_view(['POST'])
+@api_view(['POST',])
 def setSave(request):
-    try:
-        data = JSONParser().parse(request)
-        user = request.user
-        object_type = data["type"]
-        object_id = data["id"]
-        if object_type==1:
-            object_saved = Blog.objects.get(pk = object_id)
-        elif object_type==2:
-            object_saved = Moment.objects.get(pk = object_id)
-        else:
-            object_saved = Workout.objects.get(pk = object_id)
+    if request.method == 'POST':
+        try:
+            data = JSONParser().parse(request)
+            user = request.user
+            object_type = data["type"]
+            object_id = data["id"]
+            if object_type==1:
+                object_saved = Blog.objects.get(pk = object_id)
+            elif object_type==2:
+                object_saved = Moment.objects.get(pk = object_id)
+            else:
+                object_saved = Workout.objects.get(pk = object_id)
 
 
-        l=[]
-        save_set = Save.objects.all()
-        for i in save_set:
-            if i.saved_by == user and i.content_object == object_liked:
-                l.append(i)
-        save_set = l
-        if list(save_set)==[]:
-            Save.objects.create(content_type=ContentType.objects.get_for_model(object_saved),content_object=object_saved,saved_by = user)
-
-        else:
-            l = []
-            o = object_saved.likes.all()
-            for i in o:
-                if i.saved_by == user and i.content_object == object_saved:
+            l=[]
+            save_set = Save.objects.all()
+            for i in save_set:
+                if i.saved_by == user and i.content_object == object_liked:
                     l.append(i)
-            my_obj = l[0]
-            my_obj.delete()
-        return Response({"success": "done" })
-    except Exception as e:
-        return Response({"error": str(e) })
+            save_set = l
+            if list(save_set)==[]:
+                Save.objects.create(content_type=ContentType.objects.get_for_model(object_saved),content_object=object_saved,saved_by = user)
 
+            else:
+                l = []
+                o = object_saved.likes.all()
+                for i in o:
+                    if i.saved_by == user and i.content_object == object_saved:
+                        l.append(i)
+                my_obj = l[0]
+                my_obj.delete()
+            return Response({"success": "done" })
+        except Exception as e:
+            return Response({"error": str(e) })
 
 @api_view(['POST'])
 def setComment(request):
@@ -106,3 +106,30 @@ def setComment(request):
         return Response({"success": "done" })
     except Exception as e:
         return Response({"error": str(e) })
+
+@api_view(['POST','GET'])
+def setFollow(request):
+    if request.method == "POST":
+        data = JSONParser().parse(request)
+        username = data["username"]
+        to_follow = User.objects.all().filter(username=username).first()
+        follow_by = User.objects.all().filter(username=request.user).first()
+        follow_set = Follow.objects.all().filter(user_to = to_follow).filter(user_from = follow_by)
+
+        f = Follow(user_to = to_follow, user_from = follow_by)
+
+        if list(follow_set)==[]:
+            f.save()
+        else:
+            my_obj = Follow.objects.get(user_to = to_follow,user_from = follow_by)
+            my_obj.delete()
+
+        return Response({"success":"done"})
+    
+    followers  = Follow.objects.all().filter(user_from = request.user)
+    d = []
+    for i in q:
+        d.append(i.user_to.id)
+    return {
+        "followers":d
+    }

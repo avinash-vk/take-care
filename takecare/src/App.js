@@ -4,6 +4,8 @@ import Landing from '../src/views/landing/index.js'
 import Explore from '../src/views/explore/index.js'
 import Feed from '../src/views/feed/index.js'
 import Profile from '../src/views/profile/index.js'
+import Signin from '../src/views/auth/Signin.js'
+import SignUp from '../src/views/auth/Signup.js'
 import React, {useState} from 'react';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 function App() {
@@ -16,6 +18,9 @@ function App() {
         <Route exact path="/" component={Landing} />
         <Route exact path="/profile" component={Profile} />
         <Route exact path="/feed" component={Feed}/>
+        <Route exact path='/signup' component={SignUp}/>
+        <Route exact path='/signin' component={Signin}/>
+
       </Switch>
     );
   } else {

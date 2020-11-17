@@ -34,7 +34,7 @@ class Like(models.Model):
     def __str__(self):
         return '{} liked {}'.format(self.liked_by,self.content_object)
 
-class Saves(models.Model):
+class Save(models.Model):
     saved_by = models.ForeignKey(User, on_delete= models.CASCADE,related_name='saves')
     created_at = models.DateTimeField(auto_now_add=True)
     content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)

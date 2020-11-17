@@ -3,7 +3,14 @@ from rest_framework.parsers import JSONParser
 from blog.models import Blog
 from moment.models import Moment
 from workout.models import Workout
-from .models import Like,Comment,Saves
+from .models import Like,Comment,Saves,Tag
+
+#not an api
+def addTag(object):
+    l = str(object.tagname).split(',')
+    for i in l:
+        Tag.objects.create(name = i,content_type=ContentType.objects.get_for_model(object),content_object=object)
+
 
 @api_view(['POST'])
 def setLike(request):

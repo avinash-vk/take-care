@@ -2,7 +2,8 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.template.defaultfilters import slugify
 from django.contrib.contenttypes.fields import GenericRelation
-#from feed.models import Like,Tag,Saves
+from utils.models import Like,Tag,Save,Comment
+from utils.views import addTag
 
 class Blog(models.Model):
 
@@ -11,13 +12,17 @@ class Blog(models.Model):
     updated_on = models.DateTimeField(auto_now= True)
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
-    #likes = GenericRelation(Like,related_query_name="blog_likes")
-    #saves= GenericRelation(Saves,related_query_name="blog_saves")
-    #tagname = models.CharField(max_length=30, default = "blog")
-    #tag = GenericRelation(Tag,related_query_name="tags")
-
+    likes = GenericRelation(Like,related_query_name="blog_likes")
+    save = GenericRelation(Save,related_query_name="blog_saves")
+    tagname = models.CharField(max_length=30, default = "blog")
+    tag = GenericRelation(Tag,related_query_name="tags")
+    comment = GenericRelation(Comment,related_query_name="blog_comment")
     class Meta:
         ordering = ['-created_on']
 
     def __str__(self):
         return self.title
+
+    def save(self,*args,**kwargs):
+        super(Blog,self).save(*args,**kwargs)
+        addTag(self)
